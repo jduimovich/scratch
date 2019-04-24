@@ -1,0 +1,22 @@
+
+export C1=hello-scratch
+export C2=hello-gcc
+
+echo building $C1
+docker build -q -f Dockerfile-Scratch -t $C1 .
+docker images $C1
+
+echo building $C2
+docker build -q -f Dockerfile -t $C2 .
+docker images $C2
+
+echo running "\n"
+echo time for $C1
+time docker run $C1
+
+
+echo time for $C2
+time docker run $C2
+
+
+
